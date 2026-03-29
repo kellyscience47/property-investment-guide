@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房地合一稅計算機 2026 | 免費線上試算工具</title>
+<meta name="description" content="免費房地合一稅2.0線上計算機。輸入購入日期與售價，立即計算稅率、稅額、最佳出售時機。支援自住優惠試算。">
+<meta name="keywords" content="房地合一稅計算,房地合一稅試算,房地合一稅2.0,賣房稅金計算,持有期間計算">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif;line-height:1.8;color:#1a1a2e;background:#f8f9fa}
+.hero{background:linear-gradient(135deg,#0c1220 0%,#1a237e 100%);color:white;padding:60px 20px;text-align:center}
+.hero h1{font-size:2em;margin-bottom:12px;font-weight:800}
+.hero p{font-size:1em;opacity:0.9;max-width:500px;margin:0 auto}
+.container{max-width:600px;margin:0 auto;padding:30px 20px}
+.card{background:white;border-radius:16px;padding:28px;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+label{display:block;color:#1a237e;font-weight:600;margin-bottom:6px;font-size:14px}
+input,select{width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:16px;margin-bottom:16px}
+input:focus{outline:none;border-color:#3B82F6}
+button{width:100%;padding:14px;background:#3B82F6;color:white;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer}
+button:hover{background:#2563EB}
+.result{background:#f0f4ff;border-radius:12px;padding:20px;margin-top:20px}
+.result h3{color:#1a237e;margin-bottom:12px}
+.result-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #e8e8e8}
+.result-row:last-child{border:none}
+.result-label{color:#666}
+.result-value{font-weight:700;color:#1a237e}
+.savings-tip{background:#dcfce7;padding:16px;border-radius:8px;margin-top:16px;border-left:4px solid #16a34a}
+.savings-tip strong{color:#16a34a}
+.nav{text-align:center;padding:16px;font-size:14px}
+.nav a{color:#3B82F6;text-decoration:none}
+.footer{text-align:center;padding:30px 20px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<h1>🧮 房地合一稅計算機</h1>
+<p>輸入您的房產資料，立即試算稅額與最佳出售時機</p>
+</div>
+
+<div class="nav"><a href="tw.html">← 返回稅務指南</a></div>
+
+<div class="container">
+<div class="card">
+<label>購入日期</label>
+<input type="date" id="purchaseDate" value="2022-06-15">
+
+<label>購入價格 (NT$)</label>
+<input type="number" id="purchasePrice" placeholder="10000000" value="10000000">
+
+<label>預計售價 (NT$)</label>
+<input type="number" id="salePrice" placeholder="13000000" value="13000000">
+
+<label>是否符合自住優惠？</label>
+<select id="selfUse">
+<option value="no">否（一般稅率）</option>
+<option value="yes">是（設籍滿6年、無出租）</option>
+</select>
+
+<button onclick="calculate()">立即計算</button>
+
+<div id="result" class="result" style="display:none">
+<h3>📊 計算結果</h3>
+<div id="resultContent"></div>
+</div>
+
+<div id="savingsTip" class="savings-tip" style="display:none"></div>
+</div>
+</div>
+
+<div class="footer">
+<p>© 2026 房產投資指南 | <a href="tw.html" style="color:#3B82F6">完整稅務指南</a></p>
+<p>免責聲明：本工具僅供參考，實際稅額請諮詢會計師</p>
+</div>
+
+<script>
+function calculate() {
+  const purchaseDate = new Date(document.getElementById('purchaseDate').value);
+  const today = new Date();
+  const purchasePrice = parseFloat(document.getElementById('purchasePrice').value) || 0;
+  const salePrice = parseFloat(document.getElementById('salePrice').value) || 0;
+  const selfUse = document.getElementById('selfUse').value === 'yes';
+
+  const holdingDays = Math.floor((today - purchaseDate) / (1000 * 60 * 60 * 24));
+  const holdingYears = (holdingDays / 365.25).toFixed(1);
+  const gain = salePrice - purchasePrice;
+
+  let rate;
+  if (selfUse && holdingDays >= 2190) { // 6 years
+    rate = 0.10;
+  } else if (holdingDays <= 730) {
+    rate = 0.45;
+  } else if (holdingDays <= 1825) {
+    rate = 0.35;
+  } else if (holdingDays <= 3650) {
+    rate = 0.20;
+  } else {
+    rate = 0.15;
+  }
+
+  const exemption = selfUse && holdingDays >= 2190 ? 4000000 : 0;
+  const taxableGain = Math.max(0, gain - exemption);
+  const tax = Math.round(taxableGain * rate);
+
+  const netProceeds = salePrice - tax;
+
+  // Find next cliff
+  const cliffs = [
+    { days: 730, rate: 0.35, label: '2年（35%）' },
+    { days: 1825, rate: 0.20, label: '5年（20%）' },
+    { days: 3650, rate: 0.15, label: '10年（15%）' },
+  ];
+
+  let nextCliff = null;
+  for (const c of cliffs) {
+    if (holdingDays < c.days) {
+      nextCliff = c;
+      break;
+    }
+  }
+
+  const fmt = (n) => 'NT$' + Math.round(n).toLocaleString();
+  const pct = (r) => (r * 100).toFixed(0) + '%';
+
+  let html = '';
+  html += `<div class="result-row"><span class="result-label">持有天數</span><span class="result-value">${holdingDays.toLocaleString()} 天（${holdingYears} 年）</span></div>`;
+  html += `<div class="result-row"><span class="result-label">資本利得</span><span class="result-value">${fmt(gain)}</span></div>`;
+  if (exemption > 0) {
+    html += `<div class="result-row"><span class="result-label">自住免稅額</span><span class="result-value">-${fmt(exemption)}</span></div>`;
+  }
+  html += `<div class="result-row"><span class="result-label">適用稅率</span><span class="result-value">${pct(rate)}${selfUse && holdingDays >= 2190 ? '（自住優惠）' : ''}</span></div>`;
+  html += `<div class="result-row"><span class="result-label">應繳稅額</span><span class="result-value" style="color:#EF4444;font-size:18px">${fmt(tax)}</span></div>`;
+  html += `<div class="result-row"><span class="result-label">稅後淨得</span><span class="result-value" style="color:#16a34a;font-size:18px">${fmt(netProceeds)}</span></div>`;
+
+  document.getElementById('resultContent').innerHTML = html;
+  document.getElementById('result').style.display = 'block';
+
+  // Savings tip
+  if (nextCliff && gain > 0) {
+    const daysToWait = nextCliff.days - holdingDays;
+    const taxAtNextRate = Math.round(Math.max(0, gain - exemption) * nextCliff.rate);
+    const savings = tax - taxAtNextRate;
+    if (savings > 0) {
+      document.getElementById('savingsTip').innerHTML =
+        `<strong>💡 節稅建議：</strong>再等 <strong>${daysToWait} 天</strong>到達${nextCliff.label}級距，` +
+        `稅額將從 ${fmt(tax)} 降至 ${fmt(taxAtNextRate)}，<strong>可省 ${fmt(savings)}</strong>！`;
+      document.getElementById('savingsTip').style.display = 'block';
+    } else {
+      document.getElementById('savingsTip').style.display = 'none';
+    }
+  } else {
+    document.getElementById('savingsTip').style.display = 'none';
+  }
+}
+</script>
+</body>
+</html>
