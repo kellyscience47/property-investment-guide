@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kellyscience47.github.io/property-investment-guide/sitemap.xml
