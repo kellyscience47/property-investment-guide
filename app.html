@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>房產金管家 YieldMaster — 台灣唯一AI房地合一稅試算App</title>
+<meta name="description" content="房地合一稅AI試算、租金管理、投資分析。全台422萬筆實價登錄，最懂台灣稅法的房產管理App。免費下載。">
+<meta name="keywords" content="房地合一稅,試算,房產投資,租金管理,房地合一,節稅,囤房稅,實價登錄,房產金管家,YieldMaster">
+<meta property="og:title" content="房產金管家 YieldMaster — AI房地合一稅試算">
+<meta property="og:description" content="賣房要繳多少稅？AI幫你算！全台422萬筆實價登錄×AI稅務顧問。">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://kellyscience47.github.io/property-investment-guide/app.html">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"房產金管家 YieldMaster","operatingSystem":"Android, iOS","applicationCategory":"FinanceApplication","description":"台灣唯一AI房地合一稅試算App。422萬筆實價登錄、租金管理、投資分析。","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans TC',sans-serif;line-height:1.7;color:#1a1a2e;background:#f8f9fa}
+.hero{background:linear-gradient(135deg,#0c1220 0%,#1a237e 50%,#3B82F6 100%);color:white;padding:80px 20px 60px;text-align:center}
+.hero h1{font-size:2.4em;margin-bottom:12px;font-weight:800}
+.hero .tagline{font-size:1.3em;opacity:0.9;margin-bottom:8px}
+.hero .sub{font-size:1em;opacity:0.7;margin-bottom:32px}
+.btn-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:14px;text-decoration:none;font-weight:700;font-size:1.05em;transition:transform 0.2s,box-shadow 0.2s}
+.btn:hover{transform:scale(1.04)}
+.btn-primary{background:#3B82F6;color:white;box-shadow:0 4px 20px rgba(59,130,246,0.4)}
+.btn-secondary{background:rgba(255,255,255,0.15);color:white;border:2px solid rgba(255,255,255,0.3)}
+.badge-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.badge{background:rgba(255,255,255,0.12);padding:6px 16px;border-radius:20px;font-size:0.85em;font-weight:600}
+.container{max-width:900px;margin:0 auto;padding:48px 20px}
+.section-title{text-align:center;font-size:1.8em;font-weight:800;color:#1a237e;margin-bottom:12px}
+.section-sub{text-align:center;color:#666;margin-bottom:40px;font-size:1.05em}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-bottom:48px}
+.feature{background:white;border-radius:16px;padding:28px;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform 0.2s}
+.feature:hover{transform:translateY(-4px)}
+.feature .icon{font-size:2em;margin-bottom:12px}
+.feature h3{color:#1a237e;margin-bottom:8px;font-size:1.15em}
+.feature p{color:#555;font-size:0.95em}
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin:48px 0}
+.stat{background:white;border-radius:16px;padding:24px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.stat .num{font-size:2em;font-weight:800;color:#3B82F6}
+.stat .label{color:#666;font-size:0.9em;margin-top:4px}
+.use-cases{background:#1a237e;color:white;padding:60px 20px;text-align:center}
+.use-cases h2{font-size:1.8em;margin-bottom:32px}
+.persona-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:900px;margin:0 auto}
+.persona{background:rgba(255,255,255,0.1);border-radius:14px;padding:24px;text-align:center}
+.persona .emoji{font-size:2.2em;margin-bottom:8px}
+.persona h4{margin-bottom:6px}
+.persona p{opacity:0.8;font-size:0.9em}
+.comparison{margin:48px 0}
+.comparison table{width:100%;border-collapse:collapse;background:white;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.comparison th{background:#1a237e;color:white;padding:14px;text-align:left;font-size:0.95em}
+.comparison td{padding:12px 14px;border-bottom:1px solid #eee;font-size:0.95em}
+.comparison tr:last-child td{border-bottom:none}
+.comparison .yes{color:#22c55e;font-weight:700}
+.comparison .no{color:#ccc}
+.cta-section{background:linear-gradient(135deg,#3B82F6,#2563EB);color:white;padding:60px 20px;text-align:center;margin:0}
+.cta-section h2{font-size:2em;margin-bottom:12px}
+.cta-section p{font-size:1.1em;opacity:0.9;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto}
+footer{text-align:center;padding:32px 20px;color:#999;font-size:0.85em}
+footer a{color:#3B82F6;text-decoration:none}
+@media(max-width:600px){.hero h1{font-size:1.8em}.hero .tagline{font-size:1.1em}.features{grid-template-columns:1fr}.stat-row{grid-template-columns:repeat(2,1fr)}.persona-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<h1>🏠 房產金管家</h1>
+<div class="tagline">台灣唯一 AI 房地合一稅試算 App</div>
+<div class="sub">賣房要繳多少稅？AI 幫你 1 秒算出，還告訴你怎麼省</div>
+<div class="btn-row">
+<a href="https://storage.googleapis.com/yieldmaster-taiwan-builds/apk/yieldmaster-latest.apk" class="btn btn-primary">📱 下載 Android APK</a>
+<a href="#features" class="btn btn-secondary">了解更多 ↓</a>
+</div>
+<div class="badge-row">
+<span class="badge">🆓 基本功能免費</span>
+<span class="badge">🔒 資料加密</span>
+<span class="badge">🇹🇼 專為台灣設計</span>
+</div>
+</div>
+
+<div class="container">
+<div class="stat-row">
+<div class="stat"><div class="num">422萬+</div><div class="label">筆實價登錄資料</div></div>
+<div class="stat"><div class="num">22</div><div class="label">縣市完整覆蓋</div></div>
+<div class="stat"><div class="num">15+</div><div class="label">投資計算工具</div></div>
+<div class="stat"><div class="num">2012-2026</div><div class="label">年歷史資料</div></div>
+</div>
+</div>
+
+<div class="container" id="features">
+<div class="section-title">核心功能</div>
+<div class="section-sub">從稅務試算到租金管理，一個App全搞定</div>
+
+<div class="features">
+<div class="feature">
+<div class="icon">🤖</div>
+<h3>AI 房地合一稅試算</h3>
+<p>輸入房產資訊，AI 立刻計算稅額。支援自住優惠、重購退稅、繼承合併持有期間等複雜情境。不只算數字，還給節稅策略。</p>
+</div>
+<div class="feature">
+<div class="icon">📊</div>
+<h3>實價登錄行情分析</h3>
+<p>全台 422 萬筆實價登錄資料，22 縣市即時查詢。區域行情趨勢、物件評分、投資報酬率一目了然。</p>
+</div>
+<div class="feature">
+<div class="icon">💰</div>
+<h3>租金管理追蹤</h3>
+<p>記錄租金收支、租約到期提醒、空置成本計算、房客管理。包租公/包租婆的最佳幫手。</p>
+</div>
+<div class="feature">
+<div class="icon">🔮</div>
+<h3>AI 房產秘書</h3>
+<p>隨時提問稅務問題，獲得個人化建議。持有期間倒數提醒，避免多繳稅率差額。</p>
+</div>
+<div class="feature">
+<div class="icon">📈</div>
+<h3>投資組合管理</h3>
+<p>多房產總覽、淨值追蹤、月度健檢報告。了解每間房產的真實投報率。</p>
+</div>
+<div class="feature">
+<div class="icon">🔧</div>
+<h3>15+ 實用工具</h3>
+<p>囤房稅試算、房貸最佳化、損益平衡租金、持有vs出售分析、裝修ROI、折舊計算⋯⋯</p>
+</div>
+</div>
+</div>
+
+<div class="use-cases">
+<h2>適合誰？</h2>
+<div class="persona-grid">
+<div class="persona">
+<div class="emoji">🏡</div>
+<h4>準備賣房的屋主</h4>
+<p>提前算好稅額，找到最佳出售時機</p>
+</div>
+<div class="persona">
+<div class="emoji">📊</div>
+<h4>多房產投資人</h4>
+<p>管理所有房產的租金、稅務、報酬率</p>
+</div>
+<div class="persona">
+<div class="emoji">👨‍👩‍👧</div>
+<h4>繼承房產的家庭</h4>
+<p>搞懂繼承持有期間合併，避免多繳稅</p>
+</div>
+<div class="persona">
+<div class="emoji">🏢</div>
+<h4>包租公 / 包租婆</h4>
+<p>租金追蹤、租約管理、空置成本一把抓</p>
+</div>
+</div>
+</div>
+
+<div class="container">
+<div class="section-title">為什麼選擇房產金管家？</div>
+<div class="section-sub">和其他工具的比較</div>
+
+<div class="comparison">
+<table>
+<tr>
+<th>功能</th>
+<th>房產金管家</th>
+<th>實價登錄App</th>
+<th>房貸計算機</th>
+<th>Excel試算表</th>
+</tr>
+<tr>
+<td>AI房地合一稅試算</td>
+<td class="yes">✅</td>
+<td class="no">—</td>
+<td class="no">—</td>
+<td class="no">—</td>
+</tr>
+<tr>
+<td>自住優惠/重購退稅模擬</td>
+<td class="yes">✅</td>
+<td class="no">—</td>
+<td class="no">—</td>
+<td class="no">—</td>
+</tr>
+<tr>
+<td>422萬筆實價登錄</td>
+<td class="yes">✅</td>
+<td class="yes">✅</td>
+<td class="no">—</td>
+<td class="no">—</td>
+</tr>
+<tr>
+<td>租金管理</td>
+<td class="yes">✅</td>
+<td class="no">—</td>
+<td class="no">—</td>
+<td class="no">⚠️ 手動</td>
+</tr>
+<tr>
+<td>AI問答顧問</td>
+<td class="yes">✅</td>
+<td class="no">—</td>
+<td class="no">—</td>
+<td class="no">—</td>
+</tr>
+<tr>
+<td>多房產管理</td>
+<td class="yes">✅</td>
+<td class="no">—</td>
+<td class="no">—</td>
+<td class="no">⚠️ 手動</td>
+</tr>
+<tr>
+<td>持有期間倒數</td>
+<td class="yes">✅</td>
+<td class="no">—</td>
+<td class="no">—</td>
+<td class="no">—</td>
+</tr>
+<tr>
+<td>節稅策略建議</td>
+<td class="yes">✅</td>
+<td class="no">—</td>
+<td class="no">—</td>
+<td class="no">—</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="cta-section">
+<h2>立即開始管理你的房產</h2>
+<p>基本功能完全免費。下載後 30 秒完成設定，馬上試算你的房地合一稅。</p>
+<div class="btn-row">
+<a href="https://storage.googleapis.com/yieldmaster-taiwan-builds/apk/yieldmaster-latest.apk" class="btn btn-primary" style="background:white;color:#2563EB">📱 下載 Android APK</a>
+</div>
+<p style="font-size:0.85em;opacity:0.7;margin-top:16px">iOS 版本即將推出 · 支援 Android 8.0+</p>
+</div>
+
+<footer>
+<p>© 2026 房產金管家 YieldMaster · <a href="index.html">Tax Guide (EN)</a> · <a href="tw.html">稅務指南</a> · <a href="cgt-calculator.html">CGT Calculator</a> · <a href="rental-yield.html">租金報酬率</a></p>
+<p style="margin-top:8px">support@yieldmaster.app</p>
+</footer>
+
+</body>
+</html>
