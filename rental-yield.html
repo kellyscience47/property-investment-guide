@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>租金報酬率計算機 2026 | 免費線上試算</title>
+<meta name="description" content="免費租金報酬率線上計算機。輸入房價與月租金，立即計算毛報酬率、淨報酬率、現金流報酬率。含稅費與貸款試算。">
+<meta name="keywords" content="租金報酬率計算,租金收益率,房產投資報酬率,毛報酬率,淨報酬率,現金流報酬率">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,'Noto Sans TC',sans-serif;line-height:1.8;color:#1a1a2e;background:#f8f9fa}.hero{background:linear-gradient(135deg,#0c1220,#1a237e);color:white;padding:60px 20px;text-align:center}.hero h1{font-size:2em;margin-bottom:12px}.hero p{opacity:0.9;max-width:500px;margin:0 auto}.container{max-width:600px;margin:0 auto;padding:30px 20px}.card{background:white;border-radius:16px;padding:28px;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,0.06)}label{display:block;color:#1a237e;font-weight:600;margin-bottom:6px;font-size:14px}input{width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:16px;margin-bottom:16px}input:focus{outline:none;border-color:#3B82F6}button{width:100%;padding:14px;background:#3B82F6;color:white;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer}button:hover{background:#2563EB}.result{background:#f0f4ff;border-radius:12px;padding:20px;margin-top:20px}.result-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #e8e8e8}.result-row:last-child{border:none}.result-label{color:#666}.result-value{font-weight:700;color:#1a237e}.good{color:#16a34a}.bad{color:#EF4444}.nav{text-align:center;padding:16px;font-size:14px}.nav a{color:#3B82F6;text-decoration:none}.footer{text-align:center;padding:30px 20px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<div class="hero"><h1>📊 租金報酬率計算機</h1><p>輸入房價與租金，立即算出您的投資報酬率</p></div>
+<div class="nav"><a href="tw.html">← 返回稅務指南</a> | <a href="cgt-calculator.html">房地合一稅計算</a></div>
+<div class="container"><div class="card">
+<label>房屋總價 (NT$)</label><input type="number" id="price" value="10000000">
+<label>每月租金 (NT$)</label><input type="number" id="rent" value="25000">
+<label>每月管理費 (NT$)</label><input type="number" id="mgmt" value="3000">
+<label>每月房貸 (NT$，無貸款填0)</label><input type="number" id="mortgage" value="30000">
+<label>年度房屋稅+地價稅 (NT$)</label><input type="number" id="tax" value="50000">
+<button onclick="calc()">計算報酬率</button>
+<div id="result" class="result" style="display:none"></div>
+</div></div>
+<div class="footer"><p>© 2026 房產投資指南 | <a href="tw.html" style="color:#3B82F6">完整稅務指南</a></p></div>
+<script>
+function calc(){
+var p=+document.getElementById('price').value,r=+document.getElementById('rent').value,m=+document.getElementById('mgmt').value,mt=+document.getElementById('mortgage').value,t=+document.getElementById('tax').value;
+var annualRent=r*12,grossYield=(annualRent/p*100).toFixed(2);
+var annualCost=m*12+t;var netIncome=annualRent-annualCost;var netYield=(netIncome/p*100).toFixed(2);
+var cashFlow=r-m-mt-(t/12);var annualCashFlow=cashFlow*12;var cashYield=(annualCashFlow/p*100).toFixed(2);
+var f=n=>'NT$'+Math.round(n).toLocaleString();
+var cls=v=>parseFloat(v)>=3?'good':parseFloat(v)>=0?'':'bad';
+var h='<h3>📊 計算結果</h3>';
+h+='<div class="result-row"><span class="result-label">年租金收入</span><span class="result-value">'+f(annualRent)+'</span></div>';
+h+='<div class="result-row"><span class="result-label">毛報酬率</span><span class="result-value '+cls(grossYield)+'">'+grossYield+'%</span></div>';
+h+='<div class="result-row"><span class="result-label">年度費用（管理費+稅）</span><span class="result-value">'+f(annualCost)+'</span></div>';
+h+='<div class="result-row"><span class="result-label">淨報酬率</span><span class="result-value '+cls(netYield)+'">'+netYield+'%</span></div>';
+h+='<div class="result-row"><span class="result-label">每月現金流</span><span class="result-value '+(cashFlow>=0?'good':'bad')+'">'+f(cashFlow)+'</span></div>';
+h+='<div class="result-row"><span class="result-label">現金流報酬率</span><span class="result-value '+cls(cashYield)+'">'+cashYield+'%</span></div>';
+h+='<br><p style="font-size:13px;color:#666">💡 一般建議：毛報酬率 > 3% 為合理，淨報酬率 > 2% 為佳，現金流為正表示每月有盈餘。</p>';
+document.getElementById('result').innerHTML=h;document.getElementById('result').style.display='block';
+}
+</script>
+</body>
+</html>
