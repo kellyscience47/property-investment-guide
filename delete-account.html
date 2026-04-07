@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>帳號刪除說明 — 房產金管家 YieldMaster</title>
+<meta name="description" content="了解如何刪除您的房產金管家帳號及相關資料。">
+<link rel="canonical" href="https://kellyscience47.github.io/property-investment-guide/delete-account.html">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans TC',sans-serif;line-height:1.7;color:#1a1a2e;background:#f8f9fa}
+.hero{background:linear-gradient(135deg,#0c1220 0%,#1a237e 50%,#3B82F6 100%);color:white;padding:60px 20px 48px;text-align:center}
+.hero h1{font-size:2em;margin-bottom:10px;font-weight:800}
+.hero p{font-size:1.05em;opacity:0.85}
+.container{max-width:760px;margin:0 auto;padding:48px 20px}
+.card{background:white;border-radius:16px;padding:32px;box-shadow:0 2px 12px rgba(0,0,0,0.06);margin-bottom:28px}
+.card h2{color:#1a237e;font-size:1.3em;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.card h2::before{content:'';display:inline-block;width:4px;height:22px;background:#3B82F6;border-radius:2px}
+.steps{counter-reset:step;list-style:none;padding:0}
+.steps li{counter-increment:step;padding:12px 0 12px 48px;position:relative;border-bottom:1px solid #f0f0f0;font-size:0.97em;color:#444}
+.steps li:last-child{border-bottom:none}
+.steps li::before{content:counter(step);position:absolute;left:0;top:12px;width:28px;height:28px;background:#3B82F6;color:white;border-radius:50%;font-size:0.8em;font-weight:700;display:flex;align-items:center;justify-content:center}
+.data-table{width:100%;border-collapse:collapse;font-size:0.93em}
+.data-table th{background:#1a237e;color:white;padding:10px 14px;text-align:left;font-weight:600}
+.data-table td{padding:10px 14px;border-bottom:1px solid #eee;color:#444}
+.data-table tr:last-child td{border-bottom:none}
+.deleted{color:#ef4444;font-weight:600}
+.retained{color:#f59e0b;font-weight:600}
+.note{background:#eff6ff;border-left:4px solid #3B82F6;padding:14px 18px;border-radius:0 8px 8px 0;font-size:0.92em;color:#1e40af;margin-top:16px}
+.contact-box{background:#1a237e;color:white;border-radius:14px;padding:24px 28px;margin-top:8px}
+.contact-box p{opacity:0.9;margin-bottom:8px;font-size:0.95em}
+.contact-box a{color:#93c5fd;font-weight:600;text-decoration:none}
+.contact-box a:hover{text-decoration:underline}
+footer{text-align:center;padding:28px 20px;color:#999;font-size:0.85em}
+footer a{color:#3B82F6;text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>帳號刪除說明</h1>
+  <p>房產金管家 YieldMaster — 帳號與資料刪除流程</p>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <h2>如何刪除您的帳號</h2>
+    <p style="color:#555;margin-bottom:20px;font-size:0.95em">您可以隨時在 App 內刪除帳號。刪除後將無法復原，請確認您已備份所需資料。</p>
+    <ol class="steps">
+      <li>開啟<strong>房產金管家</strong> App 並登入您的帳號</li>
+      <li>點選右下角「<strong>設定</strong>」（齒輪圖示）</li>
+      <li>選擇「<strong>帳號設定</strong>」</li>
+      <li>點選「<strong>刪除帳號</strong>」</li>
+      <li>閱讀刪除說明後，確認點選「<strong>確定刪除</strong>」</li>
+      <li>帳號與所有相關資料將立即永久刪除</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>刪除後的資料處理</h2>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>資料類型</th>
+          <th>處理方式</th>
+          <th>保留期限</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>帳號資料（Email、密碼）</td>
+          <td class="deleted">立即永久刪除</td>
+          <td>0 天</td>
+        </tr>
+        <tr>
+          <td>房產投資組合資料</td>
+          <td class="deleted">立即永久刪除</td>
+          <td>0 天</td>
+        </tr>
+        <tr>
+          <td>租客資料（姓名、電話）</td>
+          <td class="deleted">立即永久刪除</td>
+          <td>0 天</td>
+        </tr>
+        <tr>
+          <td>維修紀錄、租金紀錄</td>
+          <td class="deleted">立即永久刪除</td>
+          <td>0 天</td>
+        </tr>
+        <tr>
+          <td>AI 對話記錄</td>
+          <td class="deleted">立即永久刪除</td>
+          <td>0 天</td>
+        </tr>
+        <tr>
+          <td>訂閱付款記錄（RevenueCat）</td>
+          <td class="retained">由 RevenueCat 保留</td>
+          <td>依 RevenueCat 政策（90 天）</td>
+        </tr>
+        <tr>
+          <td>崩潰報告（Firebase Crashlytics）</td>
+          <td class="retained">由 Google 保留</td>
+          <td>依 Google 政策（90 天）</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">
+      房產金管家儲存在我們伺服器上的所有個人資料將於帳號刪除後 <strong>立即永久刪除</strong>，無任何保留期。第三方服務（RevenueCat、Firebase）的資料保留依其各自隱私政策處理。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>需要協助？</h2>
+    <p style="color:#555;font-size:0.95em;margin-bottom:16px">若您無法登入 App 或遇到任何問題，請透過以下方式聯絡我們，我們將手動為您刪除帳號。</p>
+    <div class="contact-box">
+      <p>📧 請寄送刪除帳號請求至：</p>
+      <a href="mailto:circle.social.dev@gmail.com">circle.social.dev@gmail.com</a>
+      <p style="margin-top:12px;font-size:0.88em;opacity:0.8">請在信件主旨中註明「帳號刪除請求」及您的註冊 Email。我們將在 3 個工作天內完成處理。</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 房產金管家 YieldMaster &nbsp;·&nbsp; <a href="https://gist.github.com/nbaker47/4b39b7d0f693abb18f8898a10ca9d527">隱私權政策</a> &nbsp;·&nbsp; <a href="app.html">回到 App 頁面</a></p>
+</footer>
+
+</body>
+</html>
